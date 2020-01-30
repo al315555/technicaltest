@@ -2,16 +2,16 @@ package es.vlc.hotelbeds.higueras.data;
 
 public enum DtoOrderValue {
 
-    V1000(3, 1000),
-    V2000(7, 2000),
-    V5000(15, 5000),
-    V7500(19, 7500),
-    V10000(25, 10000);
+    V1000(0.03, 1000),
+    V2000(0.07, 2000),
+    V5000(0.15, 5000),
+    V7500(0.19, 7500),
+    V10000(0.25, 10000);
 
     private double dto;
     private int pricelimit;
 
-    private DtoOrderValue(final double dto, final int priceLimit){
+    DtoOrderValue(final double dto, final int priceLimit){
         this.dto = dto;
         this.pricelimit = priceLimit;
     }
@@ -31,4 +31,5 @@ public enum DtoOrderValue {
     public void setPricelimit(int pricelimit) {
         this.pricelimit = pricelimit;
     }
+
 }

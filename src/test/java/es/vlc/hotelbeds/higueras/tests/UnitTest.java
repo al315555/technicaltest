@@ -25,7 +25,7 @@ import org.springframework.web.context.WebApplicationContext;
 //@SpringBootTest
 @SpringBootTest(classes = Application.class)
 @WebAppConfiguration
-public class UnitTest {
+class UnitTest {
 
     protected MockMvc mvc;
 
@@ -52,14 +52,70 @@ public class UnitTest {
     }
 
     @Test
-    public void testCalculateService() throws Exception{
+    public void testCalculateServiceTER1200() throws Exception{
         setUp();
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/order/totalprice/descriiption/10/120/TER")
                 .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
         int status = mvcResult.getResponse().getStatus();
         assertEquals(200, status);//isOk()
         String content = mvcResult.getResponse().getContentAsString();
-        assertEquals("The total amount of the order is: 1200.0", content);
+        assertEquals("The total amount of the order is: 1169.82", content);
+        //mvc.perform(MockMvcRequestBuilders.get().accept(MediaType.APPLICATION_JSON))
+        //        .andExpect(status().isOk())
+        //        .andExpect(content().string(equalTo(ItemController.HELP_TEXT)));
+    }
+
+    @Test
+    public void testCalculateServiceRES1200() throws Exception{
+        setUp();
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/order/totalprice/descriiption/10/120/RES")
+                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);//isOk()
+        String content = mvcResult.getResponse().getContentAsString();
+        assertEquals("The total amount of the order is: 1414.26", content);
+        //mvc.perform(MockMvcRequestBuilders.get().accept(MediaType.APPLICATION_JSON))
+        //        .andExpect(status().isOk())
+        //        .andExpect(content().string(equalTo(ItemController.HELP_TEXT)));
+    }
+
+    @Test
+    public void testCalculateServiceCYM1200() throws Exception{
+        setUp();
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/order/totalprice/descriiption/10/120/CYM")
+                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);//isOk()
+        String content = mvcResult.getResponse().getContentAsString();
+        assertEquals("The total amount of the order is: 1258.284", content);
+        //mvc.perform(MockMvcRequestBuilders.get().accept(MediaType.APPLICATION_JSON))
+        //        .andExpect(status().isOk())
+        //        .andExpect(content().string(equalTo(ItemController.HELP_TEXT)));
+    }
+
+    @Test
+    public void testCalculateServiceCAN1200() throws Exception{
+        setUp();
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/order/totalprice/descriiption/10/120/CAN")
+                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);//isOk()
+        String content = mvcResult.getResponse().getContentAsString();
+        assertEquals("The total amount of the order is: 1218.708", content);
+        //mvc.perform(MockMvcRequestBuilders.get().accept(MediaType.APPLICATION_JSON))
+        //        .andExpect(status().isOk())
+        //        .andExpect(content().string(equalTo(ItemController.HELP_TEXT)));
+    }
+
+    @Test
+    public void testCalculateServiceBAL1200() throws Exception{
+        setUp();
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/order/totalprice/descriiption/10/120/BAL")
+                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);//isOk()
+        String content = mvcResult.getResponse().getContentAsString();
+        assertEquals("The total amount of the order is: 1377.012", content);
         //mvc.perform(MockMvcRequestBuilders.get().accept(MediaType.APPLICATION_JSON))
         //        .andExpect(status().isOk())
         //        .andExpect(content().string(equalTo(ItemController.HELP_TEXT)));

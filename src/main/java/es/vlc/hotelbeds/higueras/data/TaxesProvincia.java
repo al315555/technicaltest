@@ -1,17 +1,23 @@
 package es.vlc.hotelbeds.higueras.data;
 
 public enum TaxesProvincia {
-    BAL("Baleares", "BAL", 18.3),
-    CAN("Canarias", "CAN", 4.7),
-    CYM("Ceuta y Melilla", "CYM", 8.1),
-    TER("Teruel", "TER", 0.5),
-    RES("Resto", "RES", 21.5);
+    BAL("Baleares", TaxesProvincia.PROVINCIA_CODE_BAL, 0.183),
+    CAN("Canarias", TaxesProvincia.PROVINCIA_CODE_CAN, 0.047),
+    CYM("Ceuta y Melilla", TaxesProvincia.PROVINCIA_CODE_CYM, 0.081),
+    TER("Teruel", TaxesProvincia.PROVINCIA_CODE_TER, 0.005),
+    RES("Resto", TaxesProvincia.PROVINCIA_CODE_RES, 0.215);
+
+    public static final String PROVINCIA_CODE_TER = "TER";
+    public static final String PROVINCIA_CODE_RES = "RES";
+    public static final String PROVINCIA_CODE_CYM = "CYM";
+    public static final String PROVINCIA_CODE_CAN = "CAN";
+    public static final String PROVINCIA_CODE_BAL = "BAL";
 
     private String descTax;
     private String code;
     private double taxValue;
 
-    private TaxesProvincia(final String descTax, final String code, final double taxValue ) {
+    TaxesProvincia(final String descTax, final String code, final double taxValue ) {
         this.code = code;
         this.descTax = descTax;
         this.taxValue = taxValue;
